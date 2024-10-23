@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-side {
+    flex: 1;
+    background-image: url('../images/loginPicture.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.form-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    padding-left: 0;
+    font-size: 20px;
+}
+
+.btn-login {
+    background-color: #4e73df;
+    border-color: #4e73df;
+    border-radius: 30px;
+    padding: 15px 20px;
+    font-size: 22px;
+    color: #fff;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 20px;
+}
+
+.btn-login:hover {
+    background-color: #3b5bb2;
+    border-color: #3b5bb2;
+}
+
+.forgot-password, .register-link {
+    font-size: 18px;
+}
+
+.forgot-password, .register-link a {
+    color: #4e73df;
+    text-decoration: none;
+}
+
+.forgot-password:hover, .register-link a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.mb-4 {
+    margin-bottom: 2rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    header .navbar-toggler + .collapse .dropdown-menu {
+        margin-right: 10px;
+    }
+    .hero-image {
+        height: 300px;
+    }
+    .feature-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 15px;
+    }
+    header .navbar-toggler + .collapse .dropdown-menu {
+        margin-right: 15px;
+    }
+    .hero-image {
+        height: 450px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        padding: 20px;
+    }
+    header .navbar-toggler + .collapse .dropdown-menu {
+        margin-right: 20px;
+    }
+    .hero-image {
+        height: 600px;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .col-md-4 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+}

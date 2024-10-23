@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>metaTaekwondo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/homePage.css}">
+    <link rel="icon" th:href="@{/images/logo.jpg}" type="image/jpg">
+</head>
+<body>
+
+<header>
+    <div class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between ">
+        <a class="navbar-brand" href="#">
+            <img th:src="@{/images/logo.jpg}" alt="Taekwondo Logo" class="logo">
+        </a>
+
+
+        <div class="menu">
+            <div class="dropdown">
+                <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img th:src="@{/images/threelinesMenu.png}" alt="Menu" class="menu-icon">
+                </a>
+                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                    <a th:if="${isLoggedIn}" class="dropdown-item" th:href="@{/profile}">Profile</a>
+                    <a th:if="${isLoggedIn}" class="dropdown-item" th:href="@{/statistics}">Statistics</a>
+                    <a th:if="${isLoggedIn}" class="dropdown-item" th:href="@{/logout}">Logout</a>
+                    <a th:if="${!isLoggedIn}" class="dropdown-item" th:href="@{/register}">Register</a>
+                    <a th:if="${!isLoggedIn}" class="dropdown-item" th:href="@{/login}">Login</a>
+                </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+</header>
+
+<input type="hidden" id="isLoggedIn" th:value="${isLoggedIn}">
+
+<div class="hero-image">
+    <img th:src="@{/images/lucian1.jpg}" alt="Taekwondo Event" class="img-fluid">
+</div>
+
+<main class="container mt-5">
+    <h1 class="text-center mb-4">Meta-Taekwondo</h1>
+    <p class="lead text-center mb-5">New educational Taekwondo Website that uses interactive quizzes to make grading
+        preparation fun and effective.</p>
+
+    <div class="row mb-5">
+        <div class="col-md-4 mb-3">
+            <div class="feature-card">
+                <h3>Feature One</h3>
+                <p>Interactive Quizzes</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="feature-card">
+                <h3>Feature Two</h3>
+                <p>Performance Analytics</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="feature-card">
+                <h3>Feature Three</h3>
+                <p>Belt-Specific Content</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="study-session mt-5 d-flex flex-column align-items-center">
+        <h2>Start Your Quiz Session here</h2>
+        <form id="quizForm" action="/quiz" method="get">
+            <select class="form-control mb-3" id="beltSelect" name="belt">
+                <option value="" selected>Select your belt</option>
+                <option value="10th">10th Kup - White Belt</option>
+                <option value="9th">9th Kup - White with Yellow Stripe</option>
+                <option value="8th">8th Kup - Yellow Belt</option>
+                <option value="7th">7th Kup - Yellow with Green Stripe</option>
+                <option value="6th">6th Kup - Green Belt</option>
+            </select>
+            <div id="warning-message" class="text-danger mb-3" style="display: none;">Please select a belt to start the
+                quiz.
+            </div>
+            <button id="submit" class="btn btn-primary btn-lg">Start Quiz</button>
+        </form>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <p>2024 Meta-Taekwondo Website. All rights reserved.</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('quizForm').addEventListener('submit', function (event) {
+        const beltSelect = document.getElementById('beltSelect');
+        const warningMessage = document.getElementById('warning-message');
+        if (beltSelect.value === "") {
+            event.preventDefault();
+            warningMessage.style.display = 'block';
+        } else {
+            warningMessage.style.display = 'none';
+            const isLoggedIn = document.getElementById('isLoggedIn').value === 'true';
+            if (!isLoggedIn) {
+                event.preventDefault();
+                window.location.href = '/login';
+            }
+        }
+    });
+</script>
+</body>
+</html>

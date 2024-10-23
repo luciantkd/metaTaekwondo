@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/statistics.css}">
+    <link rel="icon" th:href="@{/images/logo.jpg}" type="image/jpg">
+</head>
+<header>
+    <div class="logo">
+        <a href="/home">
+            <img th:src="@{/images/logo.jpg}" alt="Taekwondo Logo" class="logo">
+        </a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Statistics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/profile}">Profile</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <h1>Statistics</h1>
+            <form id="statisticsForm">
+                <div class="form-group">
+                    <label for="quiz-attempts">Quiz Attempts:</label>
+                    <input type="text" class="form-control" id="quiz-attempts" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="questions-right">Questions Right:</label>
+                    <input type="text" class="form-control" id="questions-right" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="questions-wrong">Questions Wrong:</label>
+                    <input type="text" class="form-control" id="questions-wrong" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="average-score">Average Score:</label>
+                    <input type="text" class="form-control" id="average-score" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="average-time">Average Time Per Question:</label>
+                    <input type="text" class="form-control" id="average-time" readonly>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script th:src="@{/js/statistics.js}"></script>
+</html>
